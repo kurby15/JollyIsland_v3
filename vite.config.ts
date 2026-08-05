@@ -22,7 +22,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: "/jollyisland_v3/",
+  base: "/JollyIsland_v3/",
 
   plugins: [
     figmaAssetResolver(),
