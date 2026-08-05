@@ -1,38 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get("redirect");
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <script>
-        (function () {
-          const params = new URLSearchParams(window.location.search);
-          const redirect = params.get("redirect");
+        if (!redirect) {
+          return;
+        }
 
-          if (!redirect) {
-            return;
-          }
+        params.delete("redirect");
+        const query = params.toString();
+        const nextUrl = redirect + (query ? `?${query}` : "");
 
-          params.delete("redirect");
-          const query = params.toString();
-          const nextUrl = redirect + (query ? `?${query}` : "");
+        window.history.replaceState(null, "", nextUrl);
+      })();
+    </script>
 
-          window.history.replaceState(null, "", nextUrl);
-        })();
-      </script>
-      
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>JollyIsland Management System</title>
-      <meta name="description" content="Streamline indoor play center operations with real-time RFID tracking, customer activity monitoring, and playtime management for enhanced safety and efficiency." />
-      <meta name="robots" content="noindex, nofollow" />
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-      
-    </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JollyIsland Management System</title>
+    <meta
+      name="description"
+      content="Streamline indoor play center operations with real-time RFID tracking, customer activity monitoring, and playtime management for enhanced safety and efficiency."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      #root {
+        height: 100%;
+      }
+    </style>
+  </head>
 
-    <body>
-      
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-      
-    </body>
-  </html>
-  
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

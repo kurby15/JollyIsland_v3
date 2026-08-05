@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +6,13 @@
     <title>JollyIsland Management System</title>
     <script>
       (function () {
-        var target = "/jollyisland/?redirect=" + encodeURIComponent(window.location.pathname + window.location.search + window.location.hash);
+        var target =
+          "/JollyIsland_v3/?redirect=" +
+          encodeURIComponent(
+            window.location.pathname +
+              window.location.search +
+              window.location.hash,
+          );
         window.location.replace(target);
       })();
     </script>
