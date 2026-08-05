@@ -8,4 +8,8 @@
   Run `npm i` to install the dependencies.
 
   Run `npm run dev` to start the development server.
+
+  ## InfinityFree Deployment
+
+  Build the app with `npm run build`, upload the `dist` contents to `public_html`, and keep the Firebase Auth authorized domain set to your InfinityFree domain.
   

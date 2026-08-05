@@ -6,15 +6,7 @@
     <title>JollyIsland Management System</title>
     <script>
       (function () {
-        var base = "/JollyIsland_v3/";
-        var pathname = window.location.pathname || "/";
-        var route =
-          pathname.indexOf(base) === 0
-            ? pathname.slice(base.length)
-            : pathname.replace(/^\//, "");
-        var target =
-          base + "#" + (route ? "/" + route.replace(/^\//, "") : "/");
-        window.location.replace(target);
+        window.location.replace("/");
       })();
     </script>
   </head>
