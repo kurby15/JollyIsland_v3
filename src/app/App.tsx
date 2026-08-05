@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { HashRouter, Routes, Route, Navigate } from "react-router";
 import { useState, createContext, useContext } from "react";
 import { RefreshProvider } from "./contexts/RefreshContext";
 import Layout from "./components/Layout";
@@ -87,7 +87,7 @@ export default function App() {
       value={{ isAuthenticated, userRole, username, logout }}
     >
       <RefreshProvider>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <HashRouter>
           <Routes>
             <Route
               path="/"
@@ -139,7 +139,7 @@ export default function App() {
               <Route path="/settings" element={<Settings />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </RefreshProvider>
     </AuthContext.Provider>
   );
