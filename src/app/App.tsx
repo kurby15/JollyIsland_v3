@@ -87,7 +87,7 @@ export default function App() {
       value={{ isAuthenticated, userRole, username, logout }}
     >
       <RefreshProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Routes>
             <Route
               path="/"

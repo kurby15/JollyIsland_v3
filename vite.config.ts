@@ -1,22 +1,28 @@
-import { defineConfig } from 'vite'
-import path from 'path'
-import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import path from "path";
+import { fileURLToPath } from "url";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
 
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 function figmaAssetResolver() {
   return {
-    name: 'figma-asset-resolver',
+    name: "figma-asset-resolver",
     resolveId(id) {
-      if (id.startsWith('figma:asset/')) {
-        const filename = id.replace('figma:asset/', '')
-        return path.resolve(__dirname, 'src/assets', filename)
+      if (typeof id !== "string" || !id.startsWith("figma:asset/")) {
+        return;
       }
+
+      const filename = id.replace("figma:asset/", "");
+
+      return path.resolve(currentDir, "src/assets", filename);
     },
-  }
+  };
 }
 
 export default defineConfig({
+  base: "/jollyisland/",
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
@@ -27,10 +33,10 @@ export default defineConfig({
   resolve: {
     alias: {
       // Alias @ to the src directory
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(currentDir, "./src"),
     },
   },
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
-  assetsInclude: ['**/*.svg', '**/*.csv'],
-})
+  assetsInclude: ["**/*.svg", "**/*.csv"],
+});
