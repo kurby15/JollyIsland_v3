@@ -6,13 +6,14 @@
     <title>JollyIsland Management System</title>
     <script>
       (function () {
+        var base = "/jollyisland_v3/";
+        var pathname = window.location.pathname || "/";
+        var route =
+          pathname.indexOf(base) === 0
+            ? pathname.slice(base.length)
+            : pathname.replace(/^\//, "");
         var target =
-          "/jollyisland_v3/?redirect=" +
-          encodeURIComponent(
-            window.location.pathname +
-              window.location.search +
-              window.location.hash,
-          );
+          base + "#" + (route ? "/" + route.replace(/^\//, "") : "/");
         window.location.replace(target);
       })();
     </script>
