@@ -22,7 +22,6 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  // IMPORTANT: Must match your GitHub repository name exactly
   base: "/JollyIsland_v3/",
 
   plugins: [
