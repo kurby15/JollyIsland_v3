@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get("redirect");
+
+        if (!redirect) {
+          return;
+        }
+
+        params.delete("redirect");
+        const query = params.toString();
+        const nextUrl = redirect + (query ? `?${query}` : "");
+
+        window.history.replaceState(null, "", nextUrl);
+      })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JollyIsland Management System</title>
+    <meta
+      name="description"
+      content="Streamline indoor play center operations with real-time RFID tracking, customer activity monitoring, and playtime management for enhanced safety and efficiency."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      #root {
+        height: 100%;
+      }
+    </style>
+    <script type="module" crossorigin src="/JollyIsland_v3/assets/index-Ch2Wg2dI.js"></script>
+    <link rel="stylesheet" crossorigin href="/JollyIsland_v3/assets/index-CzutRqia.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
